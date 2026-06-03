@@ -52,7 +52,9 @@ jobs:
 
       - name: Build Docker image
         run: |
-          docker build -t ${{ vars.JFROG_REGISTRY }}/${{ vars.JFROG_DOCKER_REPO }}/petclinic:${{ github.sha }} . 
+          docker build -t ${{ vars.JFROG_REGISTRY }}/${{ vars.JFROG_DOCKER_REPO }}/petclinic:${{ github.sha }} . \
+            --build-arg JFROG_REGISTRY=${{ vars.JFROG_REGISTRY }} \
+            --build-arg JFROG_DOCKER_REPO=${{ vars.JFROG_DOCKER_REPO }}
 
       - name: Push Docker image
         run: |
