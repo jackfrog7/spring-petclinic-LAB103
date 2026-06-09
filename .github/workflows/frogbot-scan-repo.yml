@@ -21,7 +21,7 @@ jobs:
           JF_URL: https://${{ vars.JFROG_REGISTRY }}
           JF_GIT_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           JF_GIT_BASE_BRANCH: ${{ matrix.branch }}
-          JF_RELEASES_REPO: extractors
-          JF_SKIP_AUTOFIX: false
+          JF_RELEASES_REPO: extractors #https://releases.jfrog.io
+          JF_SKIP_AUTOFIX: false #Only scans repo
         with:
           oidc-provider-name: github
